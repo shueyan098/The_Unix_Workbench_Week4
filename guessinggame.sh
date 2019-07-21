@@ -5,8 +5,7 @@ read -p "Please guess how many files are in this directory: " guess
 
 num_file=$(ls -1 | wc -l)
 
-while [[ $guess -ge 0 ]]
-do  
+function guessingrule {
   if [[ $guess -lt $num_file ]]
   then 
      echo You entered: $guess. Your guess is lower than correct answer.
@@ -19,4 +18,9 @@ do
      echo Congratulations! You got it right.
 	 let guess=-1
   fi
-done
+}
+
+while [[ $guess -ge 0 ]]
+do  
+  guessingrule
+done 
